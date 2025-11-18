@@ -1,0 +1,21 @@
+<!-- Sélecteur pour choisir client ou support -->
+<select [(ngModel)]="sender">
+  <option value="client">Client</option>
+  <option value="support">Support</option>
+</select>
+
+<!-- Saisie du message -->
+<input
+  type="text"
+  [(ngModel)]="newMessage"
+  placeholder="Votre message..."
+  (keyup.enter)="send()"
+/>
+<button (click)="send()">Envoyer</button>
+
+<!-- Affichage des messages -->
+<div class="chat-box">
+  <div *ngFor="let msg of messages">
+    <strong>{{ msg.sender }}:</strong> {{ msg.content }}
+  </div>
+</div>

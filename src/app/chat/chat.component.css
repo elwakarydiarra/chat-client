@@ -1,0 +1,17 @@
+.chat-box {
+  border: 1px solid #ccc;
+  padding: 10px;
+  height: 300px;
+  overflow-y: scroll;
+  background: #f9f9f9;
+}
+
+.client {
+  text-align: left;
+  color: blue;
+}
+
+.support {
+  text-align: right;
+  color: green;
+}
