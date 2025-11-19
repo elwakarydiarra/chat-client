@@ -23,7 +23,9 @@ CREATE TABLE vehicules (
     marque VARCHAR(100),
     modele VARCHAR(100),
     immatriculation VARCHAR(50) UNIQUE,
-    categorie_acriss VARCHAR(4)
+    categorie_acriss VARCHAR(4),
+    disponibilite BOOLEAN DEFAULT TRUE,
+    prix_par_jour DECIMAL(10, 2)
 );
 
 CREATE TABLE reservations (
@@ -35,7 +37,16 @@ CREATE TABLE reservations (
     date_heure_depart TIMESTAMP,
     date_heure_retour TIMESTAMP,
     montant_total DECIMAL(10, 2),
-    statut VARCHAR(20) DEFAULT 'confirmée'
+    statut VARCHAR(20) DEFAULT 'confirmée',
+
+);
+
+CREATE TABLE offres (
+    id SERIAL PRIMARY KEY,
+    description TEXT,
+    remise DECIMAL(5, 2),
+    date_debut TIMESTAMP,
+    date_fin TIMESTAMP
 );
 
 CREATE TABLE paiements (
@@ -50,7 +61,7 @@ CREATE TABLE paiements (
 CREATE TABLE factures (
     id SERIAL PRIMARY KEY,
     reservation_id INTEGER REFERENCES reservations(id),
-    montant_total DECIMAL(10, 2),
+    montant DECIMAL(10, 2),
     date_emission TIMESTAMP
 );
 
