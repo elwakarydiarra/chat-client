@@ -19,7 +19,7 @@ export class ChatComponent {
     this.channel = new BroadcastChannel('chat');
     this.channel.onmessage = (event) => {
       this.messages.push(event.data);
-      this.cdr.detectChanges(); // 🛠️ force l’actualisation de la vue
+      this.cdr.detectChanges(); // force l’actualisation de la vue
     };
   }
 
